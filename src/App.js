@@ -16,15 +16,17 @@ function App() {
 
   return (
     <React.Fragment>
-      <Nav />
       <div className="main">
         {!LoginCtx.isLogged && <Choose />}
         {LoginCtx.isLogged && 
-        <Routes>
-          <Route path='/todolist/' element={<Todolist />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/profile' element={<Profile />} />
-        </Routes>}
+        <div className="todoList">
+          <Nav />
+          <Routes>
+            <Route path='/todolist/' element={<Todolist />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/profile' element={<Profile />} />
+          </Routes>
+          </div>}
       </div>
       <Footer />
     </React.Fragment>

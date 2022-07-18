@@ -9,7 +9,6 @@ $gray: #9f9a91;
 $light: #efefef;
 
 body {
-  background: #eee;
   background-image: linear-gradient(
     130deg,
     #9bc5da90 25%,
@@ -27,3 +26,6 @@ body {
   align-items: $align;
 }
 
+.none{
+  display: none !important;
+}

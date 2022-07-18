@@ -1,0 +1,19 @@
+.loginPage{
+  &-bg{
+    background-image: url("https://images.unsplash.com/photo-1573848953384-3be02021eb0b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+    background-position: center;
+    object-fit: cover;
+    position: relative;
+  }
+  &-btn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    button{
+      width: 8vw;
+      margin-top: 15px;
+    }
+  }
+}
+

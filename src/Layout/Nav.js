@@ -11,7 +11,7 @@ const Navigation = () => {
   return (
     <Navbar bg="secondary" variant="dark">
         <Container className={`d-flex fs-5 ${LoginCtx.isLogged?"justify-content-between":"justify-content-around"}`}>
-          <LinkContainer to="/">
+          <LinkContainer to="/todoList/">
             <Navbar.Brand className='fs-1'>Todo List</Navbar.Brand>
           </LinkContainer>
           {LoginCtx.isLogged && 

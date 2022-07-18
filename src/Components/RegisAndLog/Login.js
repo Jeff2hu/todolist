@@ -104,11 +104,12 @@ const Login = () => {
   }
   
   return (
-    <Form onSubmit={submitHandler} className="m-5 bg-light p-3">
+    <Form onSubmit={submitHandler} className="bg-light p-3" style={{height:"85vh"}}>
       <Container>
+        <h2 className='text-center'>Login</h2>
         <Form.Group className="my-4" controlId="floatingName">
           <Form.Label>Name :</Form.Label>
-          <FloatingLabel controlId="floatingName" label="Jeff">
+          <FloatingLabel controlId="floatingName" label="Jeff" className="text-secondary">
           <Form.Control 
             type="text" 
             placeholder="Jeff"
@@ -124,7 +125,7 @@ const Login = () => {
           <FloatingLabel
             controlId="floatingEmail"
             label="name@example.com"
-            className="mb-3"
+            className="mb-3 text-secondary"
           >
             <Form.Control 
               type="email" 
@@ -138,7 +139,7 @@ const Login = () => {
 
         <Form.Group className="mb-5" controlId="floatingPassword">
           <Form.Label>Password :</Form.Label>
-          <FloatingLabel controlId="floatingPassword" label="******">
+          <FloatingLabel controlId="floatingPassword" label="******" className="text-secondary">
           <Form.Control 
             type="password" 
             placeholder="******"
@@ -152,6 +153,7 @@ const Login = () => {
         <Button 
           variant="warning" 
           type="submit"
+          className='d-block ms-auto'
           disabled={!formIsValid}
         >
           Login

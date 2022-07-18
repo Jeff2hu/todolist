@@ -2,7 +2,7 @@ import React,{ useState,useContext } from 'react';
 import LoginContext from "../../State/LoginContext"
 import Register from './Register';
 import Login from './Login';
-import { Button,Container,Offcanvas,Card,ListGroup } from 'react-bootstrap';
+import { Button,Container,Offcanvas,Card,ListGroup,Row,Col } from 'react-bootstrap';
 
 const Choose = () => {
 
@@ -15,18 +15,23 @@ const Choose = () => {
   return (
     <React.Fragment>
       <Container className='my-5'>
-        <Card>
+        <Card
+          onClick={(e)=>{
+            if(e.target.tagName==="BUTTON"){
+              e.target.parentNode.parentNode.parentNode.classList.add("none")
+            }
+          }}>
           <Card.Body>
-            <Card.Title>Todo List Project</Card.Title>
-            <Card.Subtitle className="my-3 text-muted">Jeff Zhu</Card.Subtitle>
             <Card.Text className="d-flex justify-content-between align-items-baseline">
               Hello! Welcome here , before you login , please click the button first!
-              <Button variant="secondary" onClick={handleShow}>
+              <Button 
+                variant="secondary" 
+                onClick={handleShow}>
                 Click!
               </Button>
             </Card.Text>
           </Card.Body>
-          <ListGroup className='mt-5 text-center'>
+          {/* <ListGroup className='text-center'>
             <ListGroup.Item 
               action 
               onClick={()=>{
@@ -49,7 +54,7 @@ const Choose = () => {
               }}>
               Login
             </ListGroup.Item>
-          </ListGroup>
+          </ListGroup> */}
         </Card>
 
         <Offcanvas show={show} onHide={handleClose}>
@@ -64,10 +69,38 @@ const Choose = () => {
           </ListGroup>
           </Offcanvas.Body>
         </Offcanvas>
+      <Row className="loginPage m-5 gx-0">
+        <Col className='col-8'>
+          <div className="loginPage-bg bg-dark text-dark" style={{height:"85vh"}}>
+            <div className="loginPage-btn d-flex flex-column">            
+              <Button 
+                variant="secondary"
+                onClick={()=>{
+                  if(LoginCtx.page===false){
+                    return;
+                  }else{
+                    LoginCtx.setPage(!LoginCtx.page)
+                  }
+                }}>Register</Button>
+              <Button 
+                variant="secondary"
+                onClick={()=>{
+                  if(LoginCtx.page===true){
+                    return;
+                  }else{
+                    LoginCtx.setPage(!LoginCtx.page)
+                  }
+                }}>Login</Button>
+            </div>
+          </div>
+        </Col>
+        <Col className='col-4'>
+          {!LoginCtx.page && <Register/>}
+          {LoginCtx.page && <Login />}
+        </Col>
+      </Row>
 
       </Container>
-      {!LoginCtx.page && <Register/>}
-      {LoginCtx.page && <Login />}
     </React.Fragment>
   )
 }

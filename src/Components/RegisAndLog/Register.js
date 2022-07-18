@@ -1,6 +1,7 @@
 import React,{ useState,useContext } from 'react';
 import LoginContext from "../../State/LoginContext";
 import { Button,Form,Container,FloatingLabel } from 'react-bootstrap';
+import { GoTasklist } from '@react-icons/all-files/go/GoTasklist'
 
 const Register = (props) => {
 
@@ -41,16 +42,20 @@ const Register = (props) => {
 
   return (
     <Form 
-      className="m-5 bg-light p-3"
+      className="p-3 bg-light"
+      style={{height:"85vh"}}
       onSubmit={registerHandler}>
-      <Container>
 
+      <Container>
+        
+        <h2 className='d-flex align-items-center justify-content-center my-5 text-warning fw-bold'><GoTasklist /><span className='ms-3'>Todo-List</span></h2>
+        <h2 className='text-center'>Create an account</h2>
         <Form.Group className="my-4" controlId="floatingEmail">
           <Form.Label>Email address :</Form.Label>
           <FloatingLabel
             controlId="floatingEmail"
             label="name@example.com"
-            className="mb-3"
+            className="mb-3 text-secondary"
           >
             <Form.Control 
               type="email" 
@@ -66,7 +71,7 @@ const Register = (props) => {
 
         <Form.Group className="mb-5" controlId="floatingPassword">
           <Form.Label>Password :</Form.Label>
-          <FloatingLabel controlId="floatingPassword" label="******">
+          <FloatingLabel controlId="floatingPassword" label="******" className="text-secondary">
           <Form.Control 
             type="password" 
             placeholder="******"
@@ -82,6 +87,7 @@ const Register = (props) => {
         <Button 
           variant="warning" 
           type="submit"
+          className='d-block ms-auto'
         >
           Register
         </Button>
