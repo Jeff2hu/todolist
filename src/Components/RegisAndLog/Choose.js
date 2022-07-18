@@ -31,30 +31,6 @@ const Choose = () => {
               </Button>
             </Card.Text>
           </Card.Body>
-          {/* <ListGroup className='text-center'>
-            <ListGroup.Item 
-              action 
-              onClick={()=>{
-                if(LoginCtx.page===false){
-                  return;
-                }else{
-                  LoginCtx.setPage(!LoginCtx.page)
-                }
-              }}>
-              Register
-            </ListGroup.Item>
-            <ListGroup.Item 
-              action 
-              onClick={()=>{
-                if(LoginCtx.page===true){
-                  return;
-                }else{
-                  LoginCtx.setPage(!LoginCtx.page)
-                }
-              }}>
-              Login
-            </ListGroup.Item>
-          </ListGroup> */}
         </Card>
 
         <Offcanvas show={show} onHide={handleClose}>
@@ -70,7 +46,7 @@ const Choose = () => {
           </Offcanvas.Body>
         </Offcanvas>
       <Row className="loginPage m-5 gx-0">
-        <Col className='col-8'>
+        <Col className='col-5'>
           <div className="loginPage-bg bg-dark text-dark" style={{height:"85vh"}}>
             <div className="loginPage-btn d-flex flex-column">            
               <Button 
@@ -94,7 +70,7 @@ const Choose = () => {
             </div>
           </div>
         </Col>
-        <Col className='col-4'>
+        <Col className='col-7'>
           {!LoginCtx.page && <Register/>}
           {LoginCtx.page && <Login />}
         </Col>
