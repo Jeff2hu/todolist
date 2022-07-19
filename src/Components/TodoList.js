@@ -6,7 +6,7 @@ import ListTab from './TodoListComponents/ListTab';
 import { Container,Row,Col } from 'react-bootstrap';
 
 
-const Home = () => {
+const TodoList = () => {
 
   const TodoDataCtx = useContext(TodoDataContext)
 
@@ -58,4 +58,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default TodoList

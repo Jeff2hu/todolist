@@ -12,7 +12,7 @@ const Profile = () => {
   return (
     <Container className='my-5'>
       <Row>
-        <Col className='col-8'>
+        <Col className='col-7'>
           <Card className='p-3'>
             <Card.Img variant="top" src="https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" />
             <Card.Body>
@@ -44,15 +44,14 @@ const Profile = () => {
               >Send</Button>
           </div>
         </Col>
-        <Col className="col-4">
-          <Card>
+        <Col className="col-5">
+          <Card className='bg-secondary text-light'>
             <Card.Body>
-              <Card.Title className='text-center'>Your Todo List</Card.Title>
-              <Card.Subtitle className="my-3 text-muted text-center">{LoginCtx.userName}</Card.Subtitle>
-              <Card.Text className="mt-5">
+              <Card.Title className='text-center my-5 fs-2'>{LoginCtx.userName}'s Todo List</Card.Title>
+              <Card.Text className="mt-5 text-center">
                 <ul>
                   {TodoDataCtx && TodoDataCtx.renderData.map((item)=>{
-                    return <li key={item.id} style={{listStyle:"decimal",marginTop:"15px"}}>{item.data}</li>
+                    return <li key={item.id} style={{listStyle:"decimal",marginTop:"20px"}}>{item.data}</li>
                   })}
                 </ul>
               </Card.Text>

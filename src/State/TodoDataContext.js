@@ -9,12 +9,12 @@ const TodoDataContext = React.createContext({
 export const TodoDataContextProvider = (props) => {
   
   const [renderData,setRenderData] = useState([]);
+  const [filterData,setFilterData] = useState([])
 
   const renderHandler = (input) => {
     setRenderData((prev)=>{
       return[...prev,{
         data:input,
-        check:"",
         id:new Date().getTime()
       }]
     })}
@@ -25,6 +25,7 @@ export const TodoDataContextProvider = (props) => {
         renderData:renderData,
         setRenderData:setRenderData,
         renderHandler:renderHandler,
+        setFilterData:setFilterData
       }}
     >
       {props.children}

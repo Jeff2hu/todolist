@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import LoginContext from "./State/LoginContext";
 import Nav from "./Layout/Nav";
 import Footer from "./Layout/Footer";
-import Todolist from "./Components/TodoList";
+import TodoList from "./Components/TodoList";
 import About from "./Components/About";
 import Profile from "./Components/Profile";
 import Choose from "./Components/RegisAndLog/Choose";
@@ -22,7 +22,7 @@ function App() {
         <div className="todoList">
           <Nav />
           <Routes>
-            <Route path='/todolist/' element={<Todolist />} />
+            <Route path='/todoList/' element={<TodoList />} />
             <Route path='/about' element={<About />} />
             <Route path='/profile' element={<Profile />} />
           </Routes>
