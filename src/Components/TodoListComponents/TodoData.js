@@ -4,7 +4,7 @@ import TodoDataContext from '../../State/TodoDataContext';
 const TodoData = () => {
   
   const TodoDataCtx = useContext(TodoDataContext);
-  const [upDateList,setUpDateList] = useState([])
+  const filterData = []
 
   const clickHandler = (e) => {
     if(e.target.classList[0]==="delete"){
@@ -15,28 +15,31 @@ const TodoData = () => {
       })
     }else{
       const target = e.target.parentElement.parentElement;
-      // {data:target.textContent,id:target.dataset.id}
-      console.dir(target)
-      console.log({data:target.textContent,id:target.dataset.id})
       if(e.target.checked){
-        setUpDateList((prev)=>{return [...prev,{data:target.textContent,id:target.dataset.id}]})
-      }else{
-        setUpDateList((prev)=>{
-          const deleteIndex = prev.findIndex((item)=>{return (target.dataset.id===item.id)})
-          prev.splice(deleteIndex,1);
-          console.log(prev)
+        TodoDataCtx.setDoneData((prev)=>{
+          return [...prev,{data:target.textContent,id:target.dataset.id}
+        ]})
+        const deleteIndex = TodoDataCtx.data.findIndex((item)=>{return (target.dataset.id===item.id)});
+        TodoDataCtx.setWorkingData((prev)=>{
+          prev.splice(deleteIndex,1)
           return [...prev]
         })
+      }else{
+        const deleteIndex = TodoDataCtx.doneData.findIndex((item)=>{return (target.dataset.id===item.id)})
+        TodoDataCtx.setDoneData((prev)=>{
+          prev.splice(deleteIndex,1)
+          return [...prev]
+        })
+        TodoDataCtx.setWorkingData((prev)=>{
+          return [...prev,{data:target.textContent,id:target.dataset.id}
+        ]})
       }
     }
   }
-  
-
-  
 
   return (
     <ul className="list">
-      {TodoDataCtx && TodoDataCtx.renderData.map((item)=>{
+      {TodoDataCtx.renderData && TodoDataCtx.renderData.map((item)=>{
         return(
           <li 
             key={item.id} 

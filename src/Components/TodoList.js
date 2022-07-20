@@ -35,7 +35,7 @@ const TodoList = () => {
                     alert("Please confirm your input")
                     return;
                   }else{
-                    TodoDataCtx.renderHandler(inputData)
+                    TodoDataCtx.dataHandler(inputData)
                     setInputData("")
                   }}}
               >+</a>

@@ -1,4 +1,4 @@
-import React,{ useRef , useReducer , useContext } from 'react';
+import React,{ useRef , useContext } from 'react';
 import TodoDataContext from '../../State/TodoDataContext';
 
 
@@ -6,21 +6,6 @@ const ListTab = () => {
 
   const Tab_ul = useRef("")
   const TodoDataCtx = useContext(TodoDataContext);
-  const tabReducer = (state,action) => {
-    switch(action.type){
-      case "all":
-        return{}
-      case "working":
-        return{}
-      case "done":
-        return{}
-      default:
-      break;
-    }
-  }
-  const [tabState,dispatchTab] = useReducer(tabReducer,{
-    arr:[]
-  })
 
   return (
     <ul 
@@ -33,16 +18,17 @@ const ListTab = () => {
       <li 
         className="active"
         onClick={()=>{
-          dispatchTab({type:"all"})
+          TodoDataCtx.setRenderData(TodoDataCtx.data)
         }}>All</li>
       <li
         onClick={()=>{
-          dispatchTab({type:"all"})
+          
         }}>Working</li>
       <li
         onClick={()=>{
-          dispatchTab({type:"all"})
+          TodoDataCtx.setRenderData(TodoDataCtx.doneData)
         }}>Done</li>
+
     </ul>
   )
 }
