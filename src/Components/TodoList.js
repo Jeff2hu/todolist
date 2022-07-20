@@ -46,8 +46,7 @@ const TodoList = () => {
                 <TodoData />
               </div>
               <div className="card-footer">
-                <p className="workNum">Still has {TodoDataCtx.renderData.length} working todo</p>
-                <a href="#" id="deleteAll">Clean all done todo</a>
+                <p className="workNum">Still has {TodoDataCtx.workingData.length} working todo</p>
               </div>
             </div>
           </div>

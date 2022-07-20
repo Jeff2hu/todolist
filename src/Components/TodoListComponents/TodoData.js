@@ -8,31 +8,31 @@ const TodoData = () => {
 
   const clickHandler = (e) => {
     if(e.target.classList[0]==="delete"){
-      const deleteIndex = TodoDataCtx.renderData.findIndex((item)=>Number(e.target.parentElement.dataset.id)===item.id)
-      TodoDataCtx.setRenderData((prev)=>{
+      const deleteIndex = TodoDataCtx.data.findIndex((item)=>Number(e.target.parentElement.dataset.id)===item.id)
+      TodoDataCtx.setData((prev)=>{
         prev.splice(deleteIndex,1)
         return [...prev]
       })
     }else{
       const target = e.target.parentElement.parentElement;
       if(e.target.checked){
-        TodoDataCtx.setDoneData((prev)=>{
-          return [...prev,{data:target.textContent,id:target.dataset.id}
-        ]})
-        const deleteIndex = TodoDataCtx.data.findIndex((item)=>{return (target.dataset.id===item.id)});
+        const deleteIndex = TodoDataCtx.data.findIndex((item)=>{return Number(target.dataset.id)===item.id});
         TodoDataCtx.setWorkingData((prev)=>{
           prev.splice(deleteIndex,1)
           return [...prev]
         })
+        TodoDataCtx.setDoneData((prev)=>{
+          return [...prev,{data:target.textContent,id:target.dataset.id}
+        ]})
       }else{
-        const deleteIndex = TodoDataCtx.doneData.findIndex((item)=>{return (target.dataset.id===item.id)})
+        TodoDataCtx.setWorkingData((prev)=>{
+          return [...prev,{data:target.textContent,id:target.dataset.id}
+        ]})
+        const deleteIndex = TodoDataCtx.doneData.findIndex((item)=>{return Number(target.dataset.id)===item.id})
         TodoDataCtx.setDoneData((prev)=>{
           prev.splice(deleteIndex,1)
           return [...prev]
         })
-        TodoDataCtx.setWorkingData((prev)=>{
-          return [...prev,{data:target.textContent,id:target.dataset.id}
-        ]})
       }
     }
   }

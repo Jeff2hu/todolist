@@ -11,7 +11,7 @@ export const TodoDataContextProvider = (props) => {
   const [data,setData] = useState([]);
   const [renderData,setRenderData] = useState([])
   const [doneData,setDoneData] = useState([])
-  const [workingData,setWorkingData] = useState(data)
+  const [workingData,setWorkingData] = useState([])
 
   const dataHandler = (input) => {
     setData([...data,{
@@ -26,10 +26,6 @@ export const TodoDataContextProvider = (props) => {
     setWorkingData(data)
   },[data])
 
-  useEffect(()=>{
-    
-  },[doneData])
-
   return(
     <TodoDataContext.Provider
       value={{
@@ -41,6 +37,7 @@ export const TodoDataContextProvider = (props) => {
         setDoneData:setDoneData,
         setWorkingData:setWorkingData,
         doneData:doneData,
+        workingData:workingData
       }}
     >
       {props.children}
