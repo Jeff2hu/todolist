@@ -22,11 +22,7 @@ const ListTab = () => {
         }}>All</li>
       <li
         onClick={()=>{
-          TodoDataCtx.setRenderData(TodoDataCtx.workingData)
-        }}>Working</li>
-      <li
-        onClick={()=>{
-          TodoDataCtx.setRenderData(TodoDataCtx.doneData)
+        TodoDataCtx.setRenderData(TodoDataCtx.doneData)
         }}>Done</li>
     </ul>
   )

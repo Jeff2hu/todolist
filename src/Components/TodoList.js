@@ -46,7 +46,7 @@ const TodoList = () => {
                 <TodoData />
               </div>
               <div className="card-footer">
-                <p className="workNum">Still has {TodoDataCtx.workingData.length} working todo</p>
+                <p className="workNum">Still has {TodoDataCtx.workingData && TodoDataCtx.workingData.length} working todo</p>
               </div>
             </div>
           </div>

@@ -9,8 +9,8 @@ const Navigation = () => {
   const LoginCtx = useContext(LoginContext)
 
   return (
-    <Navbar bg="secondary" variant="dark">
-        <Container className={`d-flex fs-5 ${LoginCtx.isLogged?"justify-content-between":"justify-content-around"}`}>
+    <Navbar bg="secondary" variant="dark" style={{opacity:".7"}}>
+        <Container className="d-flex fs-5 justify-content-around">
           <LinkContainer to="/todoList/">
             <Navbar.Brand className='fs-1'>Todo List</Navbar.Brand>
           </LinkContainer>

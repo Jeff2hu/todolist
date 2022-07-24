@@ -16,18 +16,10 @@ const TodoData = () => {
     }else{
       const target = e.target.parentElement.parentElement;
       if(e.target.checked){
-        const deleteIndex = TodoDataCtx.data.findIndex((item)=>{return Number(target.dataset.id)===item.id});
-        TodoDataCtx.setWorkingData((prev)=>{
-          prev.splice(deleteIndex,1)
-          return [...prev]
-        })
         TodoDataCtx.setDoneData((prev)=>{
           return [...prev,{data:target.textContent,id:target.dataset.id}
         ]})
       }else{
-        TodoDataCtx.setWorkingData((prev)=>{
-          return [...prev,{data:target.textContent,id:target.dataset.id}
-        ]})
         const deleteIndex = TodoDataCtx.doneData.findIndex((item)=>{return Number(target.dataset.id)===item.id})
         TodoDataCtx.setDoneData((prev)=>{
           prev.splice(deleteIndex,1)
@@ -35,7 +27,7 @@ const TodoData = () => {
         })
       }
     }
-  }
+    }
 
   return (
     <ul className="list">

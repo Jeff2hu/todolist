@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <LoginContextProvider>
       <TodoDataContextProvider>
         <BrowserRouter>
@@ -18,7 +18,7 @@ root.render(
         </BrowserRouter>
       </TodoDataContextProvider>
     </LoginContextProvider> 
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
 

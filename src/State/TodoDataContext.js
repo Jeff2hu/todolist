@@ -9,9 +9,8 @@ const TodoDataContext = React.createContext({
 export const TodoDataContextProvider = (props) => {
   
   const [data,setData] = useState([]);
-  const [renderData,setRenderData] = useState([])
-  const [doneData,setDoneData] = useState([])
-  const [workingData,setWorkingData] = useState([])
+  const [renderData,setRenderData] = useState([]);
+  const [doneData,setDoneData] = useState([]);
 
   const dataHandler = (input) => {
     setData([...data,{
@@ -23,7 +22,6 @@ export const TodoDataContextProvider = (props) => {
 
   useEffect(()=>{
     setRenderData(data)
-    setWorkingData(data)
   },[data])
 
   return(
@@ -35,9 +33,7 @@ export const TodoDataContextProvider = (props) => {
         dataHandler:dataHandler,
         setRenderData:setRenderData,
         setDoneData:setDoneData,
-        setWorkingData:setWorkingData,
         doneData:doneData,
-        workingData:workingData
       }}
     >
       {props.children}
